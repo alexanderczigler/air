@@ -1,0 +1,24 @@
+<div>
+  <table cellspacing="0">
+    <thead>
+    <tr>
+      <td>Time</td>
+      <td>Temp</td>
+      <td>Humidity</td>
+      <td>Wind</td>
+      <td>Rain</td>
+      <td>Abs. pressure</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="log in logs">
+      <td>{{log.Date}} {{log.Time}}</td>
+      <td>{{log.TempOut}}&deg; C</td>
+      <td>{{log.HumidityOut}} %</td>
+      <td>{{log.WindAvg}} m/s from {{log.WindDirection}}</td>
+      <td>{{log.Rain}} mm</td>
+      <td>{{log.AbsPressure}} mb</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

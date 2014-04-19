@@ -10,6 +10,10 @@ angular.module('air').controller('FilterCtrl', function ($scope, $rootScope, wea
       Value: 'latest'
     },
     {
+      Name: 'Last 7 days',
+      Value: ''
+    },
+    {
       Name: 'Coldest',
       Value: 'coldest'
     },

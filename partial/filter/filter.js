@@ -32,4 +32,8 @@ angular.module('air').controller('FilterCtrl', function ($scope, $rootScope, wea
     weather.CurrentStation = station;
   });
 
+  $scope.$watch('currentFilterType', function(type) {
+    weather.CurrentFilterType = type;
+  });
+
 });

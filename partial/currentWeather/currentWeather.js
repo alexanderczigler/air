@@ -45,6 +45,12 @@ angular.module('air').controller('CurrentWeatherCtrl', function ($scope, $http, 
     });
   };
 
+  $scope.FetchWeatherData = function() {
+    $scope.weather.FetchWeatherData(function (data) {
+      $scope.logs = data;
+    });
+  };
+
   /*
     Watches.
    */
@@ -55,15 +61,14 @@ angular.module('air').controller('CurrentWeatherCtrl', function ($scope, $http, 
 
   $scope.$watch('weather.CurrentStation', function() {
     if (!!$scope.weather.CurrentStation) {
-      console.log('CurrentStation changed');
-      $scope.weather.FetchWeatherData(function (data) {
-        $scope.logs = data;
-      });
+      $scope.FetchWeatherData();
     }
   });
 
-  $scope.$parent.$watch('currentStation', function(currentStation) {
-    console.log('curr', currentStation);
+  $scope.$watch('weather.CurrentFilterType', function() {
+    if (!!$scope.weather.CurrentFilterType) {
+      $scope.FetchWeatherData();
+    }
   });
 
 });

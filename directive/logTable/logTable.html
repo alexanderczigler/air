@@ -2,8 +2,8 @@
   <table cellspacing="0">
     <thead>
     <tr>
-      <td>Time</td>
-      <td>Temp</td>
+      <td>Date/Time</td>
+      <td>Temperature</td>
       <td>Humidity</td>
       <td>Wind</td>
       <td>Rain</td>
@@ -12,12 +12,29 @@
     </thead>
     <tbody>
     <tr ng-repeat="log in logs">
-      <td>{{log.Date}} {{log.Time}}</td>
-      <td>{{log.TempOut}}&deg; C</td>
-      <td>{{log.HumidityOut}} %</td>
-      <td>{{log.WindAvg}} m/s from {{log.WindDirection}}</td>
-      <td>{{log.Rain}} mm</td>
-      <td>{{log.AbsPressure}} mb</td>
+      <td>
+        {{log.Date}} {{log.Time}}
+      </td>
+      <td>
+        {{log.TempOut}}
+        <span ng-show="!!log.TempOut">&deg; C</span>
+      </td>
+      <td>
+        {{log.HumidityOut}}
+        <span ng-show="!!log.HumidityOut">%</span>
+      </td>
+      <td>
+        {{log.WindAvg}}
+        <span ng-show="!!log.WindAvg"> m/s [{{log.WindDirection}}]</span>
+      </td>
+      <td>
+        {{log.Rain}}
+        <span ng-show="!!log.Rain">mm</span>
+      </td>
+      <td>
+        {{log.AbsPressure}}
+        <span ng-show="!!log.AbsPressure">mb</span>
+      </td>
     </tr>
     </tbody>
   </table>

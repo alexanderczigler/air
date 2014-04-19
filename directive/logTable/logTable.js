@@ -10,6 +10,11 @@ angular.module('air').directive('logTable', function () {
     templateUrl: 'directive/logTable/logTable.html',
     link: function (scope, element, attrs, fn) {
 
+      scope.$watch('logs', function(logs) {
+        logs.map(function(l) {
+          l.TempOut = l.TempOut.toFixed(1);
+        });
+      });
 
     }
   };

@@ -1,12 +1,13 @@
 body {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 12px;
+  margin: 0px;
 }
 
-h1 {
-  font-weight: bold;
-  font-size: 14px;
-}
+@darkBlue: #025D8C;
+@lightGrey: #919999;
+@fadedGrey: #D8D8D8;
+@white: #efefef;
 
 /* Directive LESS */
 @import "../directive/logTable/logTable.less";
@@ -14,4 +15,8 @@ h1 {
 
 /* Partial LESS */
 @import "../partial/currentWeather/currentWeather.less";
+@import "../partial/main/main.less";
+@import "../partial/filter/filter.less";
+@import "../partial/logo/logo.less";
+@import "../partial/footer/footer.less";
 /* Add Partial LESS Above */

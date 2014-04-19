@@ -1,18 +1,9 @@
 <div ng-controller="CurrentWeatherCtrl">
-  <div>
-    <h1>Weather stations</h1>
-  </div>
-  <div id="stations">
-    <ul>
-      <li data-ng-repeat="station in stations">
-        <a href="#" data-ng-click="setActiveStation(station.StationId)">{{station.Name}}</a>
-      </li>
-    </ul>
-  </div>
-  <div id="currentWeather" ng-show="!!activeStation.StationId">
-    <div>
-      <h1>Current weather @{{activeStation.Name}}</h1>
-    </div>
+
+  <div id="currentWeather">
+
     <log-table logs="logs"></log-table>
+
   </div>
+
 </div>

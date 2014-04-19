@@ -1,0 +1,25 @@
+<div ng-controller="FilterCtrl">
+
+  <div class="filters">
+
+    <span class="station-filter">
+
+      Station:
+      <select ng-options="station.Name for station in stations" ng-model="currentStation">
+        <option value="" disabled>Choose station</option>
+      </select>
+
+    </span>
+
+    <span class="type-filter">
+
+      Filter:
+      <select ng-options="station.Name for station in filterTypes" ng-model="currentFilterType">
+        <option value="" disabled>Choose filter</option>
+      </select>
+
+    </span>
+
+  </div>
+
+</div>

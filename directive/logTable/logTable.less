@@ -1,14 +1,16 @@
 table {
-  border: 0px #0b97c4 solid;
-  border-top-width: 3px;
+  border: 0px @fadedGrey solid;
   border-bottom-width: 1px;
-  //margin:0 auto;
+  border-color: @lightGrey;
+  color: @darkBlue;
+  width: 100%;
 }
 
 table td {
-  border: 0px #D2E0E6 solid;
+  color: @darkBlue;
+  border: 0px @fadedGrey solid;
   border-bottom-width: 1px;
-  padding: 0 10px;
+  padding: 4px 10px;
 }
 
 table tbody tr:last-child td {
@@ -16,13 +18,13 @@ table tbody tr:last-child td {
 }
 
 thead tr {
-  border: 0px #0b97c4 solid;
-  border-top-width: 3px;
-  border-bottom-width: 1px;
+  border: 0;
 }
 
 thead td {
+  font-size: 10px;
   font-weight: bold;
-  border: 0px #606060 solid;
-  border-bottom-width: 1px;
+  color: @white;
+  background-color: @lightGrey;
+  border: 0;
 }

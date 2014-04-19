@@ -24,9 +24,9 @@
 
   <!-- Main App JS -->
   <script src="js/setup.js"></script>
-  <script src="js/config.js"></script>
 
   <!-- Service JS -->
+  <script src="service/weather.js"></script>
   <!-- Add New Service JS Above --> 
 
   <!-- Model JS -->
@@ -41,10 +41,14 @@
 
   <!-- Partial JS -->
   <script src="partial/currentWeather/currentWeather.js"></script>
+  <script src="partial/main/main.js"></script>
+  <script src="partial/filter/filter.js"></script>
+  <script src="partial/logo/logo.js"></script>
+  <script src="partial/footer/footer.js"></script>
   <!-- Add New Partial JS Above -->
 
   <div ui-view>
-    <div ng-controller="CurrentWeatherCtrl" ng-include src="'partial/currentWeather/currentWeather.html'"></div>
+    <div ng-controller="MainCtrl" ng-include src="'partial/main/main.html'"></div>
   </div>
   
 </body>

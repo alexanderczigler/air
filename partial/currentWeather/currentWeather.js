@@ -1,14 +1,16 @@
-angular.module('air').controller('CurrentWeatherCtrl', function ($scope, $http, CONFIG) {
+angular.module('air').controller('CurrentWeatherCtrl', function ($scope, $http, weather) {
   'use strict';
+
+  $scope.weather = weather;
 
   // Weather station.
   $scope.activeStation = {};
   $scope.stations = {};
-  $scope.stationsUrl = CONFIG.apiUrl + 'stations';
+  //$scope.stationsUrl = CONFIG.apiUrl + 'stations';
 
   // Weather logs.
   $scope.logs = {};
-  $scope.logsUrl = CONFIG.apiUrl + 'logs/{stationId}/latest';
+  //$scope.logsUrl = CONFIG.apiUrl + 'logs/{stationId}/latest';
 
   /*
     Scope methods.
@@ -38,8 +40,7 @@ angular.module('air').controller('CurrentWeatherCtrl', function ($scope, $http, 
     console.log('set station', stationId);
     $scope.stations.map(function(s) {
       if (s.StationId === stationId) {
-        console.log(s, 'meow');
-        $scope.activeStation = s;
+        $scope.weather.CurrentStation = s;
       }
     });
   };
@@ -48,15 +49,21 @@ angular.module('air').controller('CurrentWeatherCtrl', function ($scope, $http, 
     Watches.
    */
 
-  $scope.$watch('stationsUrl', function() {
-    if (!!$scope.stationsUrl) {
-      $scope.loadStations();
+  $scope.$watch('weather', function() {
+    //$scope.stations = $scope.weather.FetchWeatherStations();
+  });
+
+  $scope.$watch('weather.CurrentStation', function() {
+    if (!!$scope.weather.CurrentStation) {
+      console.log('CurrentStation changed');
+      $scope.weather.FetchWeatherData(function (data) {
+        $scope.logs = data;
+      });
     }
   });
 
-  $scope.$watch('activeStation', function() {
-    if (!!$scope.activeStation) {
-      $scope.loadLogs($scope.activeStation.StationId);
-    }
+  $scope.$parent.$watch('currentStation', function(currentStation) {
+    console.log('curr', currentStation);
   });
+
 });

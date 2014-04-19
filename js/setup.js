@@ -1,4 +1,6 @@
-angular.module('air', ['ui.router', 'ngResource']);
+angular.module('air', ['ui.router', 'ngResource']).constant('CONFIG', {
+  apiUrl: 'http://air.ilix.se:3000/'
+});
 
 angular.module('air').config(function ($stateProvider, $urlRouterProvider) {
   'use strict';

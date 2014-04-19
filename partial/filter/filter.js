@@ -10,7 +10,7 @@ angular.module('air').controller('FilterCtrl', function ($scope, $rootScope, wea
       Value: 'latest'
     },
     {
-      Name: 'Last 7 days',
+      Name: 'Last 7 days (ca)',
       Value: ''
     },
     {
@@ -20,6 +20,10 @@ angular.module('air').controller('FilterCtrl', function ($scope, $rootScope, wea
     {
       Name: 'Hottest',
       Value: 'hottest'
+    },
+    {
+      Name: 'Average',
+      Value: 'average'
     }
   ];
   $scope.currentFilterType = {

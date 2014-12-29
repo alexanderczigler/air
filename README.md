@@ -15,13 +15,18 @@ The third part is this project, the web frontend.
 development
 ===========
 
-Clone the repos, enter the folder and run the following.
+Clone the repos, enter the folder and run the following. Bower install will run automatically after npm install, as specified in package.json.
 
 ```
 npm install -g grunt-cli yo bower generator-mrwhite;
-npm install; bower install;
+npm install;
 ```
 
 Once all that is done, you simply run *grunt* and point your browser to http://localhost:9001
 
 Also, checkout the documentation for generator-mrwhite (https://github.com/Iteam1337/generator-mrwhite).
+
+demo
+====
+
+Check out http://weather.ilix.se

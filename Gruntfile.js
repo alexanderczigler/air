@@ -162,6 +162,23 @@ module.exports = function (grunt) {
           run: true
         }
       }
+    },
+    aws_s3: {
+      options: {
+        accessKeyId: process.env.MyAccessKEY,
+        secretAccessKey: process.env.MySecretKEY,
+        region: 'eu-west-1',
+        uploadConcurrency: 1,
+        downloadConcurrency: 1
+      },
+      production: {
+        options: {
+          bucket: 'weather.ilix.se'
+        },
+        files: [
+          {expand: true, cwd: 'dist/', src: ['**'], dest: '/'}
+        ]
+      }
     }
   });
 
@@ -184,5 +201,6 @@ module.exports = function (grunt) {
   grunt.registerTask('build',['clean:before','less','dom_munger:readcss','dom_munger:readscripts','ngtemplates','cssmin','concat','ngmin','uglify','copy','dom_munger:removecss','dom_munger:addcss','dom_munger:removescripts','dom_munger:addscript','htmlmin','imagemin','clean:after']);
   grunt.registerTask('test',['jshint', 'mocha']);
   grunt.registerTask('server', ['connect', 'watch']);
+  grunt.registerTask('deploy', ['build', 'aws_s3:production']);
   grunt.registerTask('default', ['test', 'server', 'watch']);
 };

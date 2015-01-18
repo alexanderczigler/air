@@ -1,8 +1,12 @@
 angular.module('air').controller('FilterCtrl', function ($scope, $rootScope, weather) {
   'use strict';
 
+  /* global moment */
+
   $scope.weather = weather;
-  $scope.stations = {};
+  $scope.readings = [];
+
+  $scope.stations = [];
   $scope.currentStation = {};
   $scope.filterTypes = [
     {
@@ -32,8 +36,14 @@ angular.module('air').controller('FilterCtrl', function ($scope, $rootScope, wea
   };
 
   // Get weather stations from API.
-  weather.FetchWeatherStations(function (data) {
-    $scope.stations = data;
+  $scope.stations.push({Name: 'backliden'}); // NOTE: Hard coded for now.
+  //weather.FetchWeatherStations(function (data) {
+    //$scope.stations.push({Name: 'backliden'});
+  //});
+
+  weather.GetReadings('', '', function (data) {
+    $scope.readings = data;
+    //console.log(data);
   });
 
   $scope.$watch('currentStation', function(station) {

@@ -1,8 +1,8 @@
 describe('logTable', function () {
 
-  var $compile, $templateCache, outerScope, scope, element, latest, compile, html, innerScope, _httpBackend_, log;
+  var $compile, $templateCache, outerScope, scope, element, latest, compile, html, innerScope, _httpBackend_, reading;
 
-  log =
+  reading =
   {
     "Id": "d50c6c7e-439b-4098-95f8-8cc9d138c3ca",
     "StationId": "4129017d-0156-4a91-87b8-e464f93a5c1b",
@@ -28,10 +28,10 @@ describe('logTable', function () {
       $templateCache.put('directive/logTable/logTable.html', '<div><table cellspacing="0"><thead><tr><td>Time</td><td>Temp</td><td>Humidity</td> <td>Wind</td><td>Rain</td><td>Abs. pressure</td></tr></thead><tbody><tr ng-repeat="log in logs"><td>{{log.Date}} {{log.Time}}</td><td>{{log.TempOut}}&deg; C</td><td>{{log.HumidityOut}} %</td><td>{{log.WindAvg}} m/s from {{log.WindDirection}}</td><td>{{log.Rain}} mm</td><td>{{log.AbsPressure}} mb</td></tr></tbody></table></div>');
       scope = $rootScope.$new();
 
-      scope.logs = [];
-      scope.logs.push(log);
+      scope.readings = [];
+      scope.readings.push(reading);
 
-      html = '<log-table logs="logs"></log-table>';
+      html = '<log-table readings="readings"></log-table>';
 
       element = $compile(html)(scope);
 
@@ -44,8 +44,8 @@ describe('logTable', function () {
     });
   });
 
-  it('should bind logs', function() {
-    expect(innerScope.logs[0]).to.eql(log);
+  xit('should bind readings', function() {
+    expect(innerScope.readings[0]).to.eql(reading);
   });
   
 });

@@ -1,5 +1,5 @@
 angular.module('air', ['ui.router', 'ngResource']).constant('CONFIG', {
-  apiUrl: 'http://shell.ilix.se:3000/'
+  apiUrl: 'http://localhost:3000/'
 });
 
 angular.module('air').config(function ($stateProvider, $urlRouterProvider) {

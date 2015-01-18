@@ -1,6 +1,4 @@
-angular.module('air').controller('MainCtrl', function ($scope) {
+angular.module('air').controller('MainCtrl', function () {
   'use strict';
-
-  $scope.currentStation = {};
 
 });

@@ -7,16 +7,16 @@ angular.module('air').controller('CurrentWeatherCtrl', function ($scope, $http, 
   $scope.activeStation = {};
   $scope.stations = {};
 
-  // Weather logs.
-  $scope.logs = {};
+  // Weather readings.
+  $scope.readings = {};
 
   /*
    * Scope methods.
    */
 
   $scope.FetchWeatherData = function() {
-    $scope.weather.FetchWeatherData(function (data) {
-      $scope.logs = data;
+    $scope.weather.GetReadings('backliden', '20150101', function (data) {
+      $scope.readings = data;
     });
   };
 
